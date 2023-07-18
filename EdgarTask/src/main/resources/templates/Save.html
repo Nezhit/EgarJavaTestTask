@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+  <link rel="stylesheet" type="text/css" href="/my.css">
+    <title>Title</title>
+</head>
+<body>
+
+<nav class="navbar">
+  <a href="/">Главная</a>
+  <a href="/table">Продукты</a>
+  <a href="/save">Добавить</a>
+  <a href="/search">Поиск</a>
+  <a href="/contact">Контакты</a>
+</nav>
+<h2>Добавление записи в базу данных</h2>
+
+<form action="/save" method="post" onsubmit="return validateForm()" class="form-container">
+  <label for="field1">ID:</label>
+  <input type="text" id="field1" name="field1" />
+
+  <label for="field2">Марка:</label>
+  <input type="text" id="field2" name="field2" />
+
+  <label for="field3">Модель:</label>
+  <input type="text" id="field3" name="field3" />
+
+  <label for="field4">Категория:</label>
+  <select id="field4" name="field4">
+    <option value="Седан">Седан</option>
+    <option value="Хэтчбек">Хэтчбек</option>
+    <option value="Грузовик">Грузовик</option>
+    <option value="Пикап">Пикап</option>
+    <option value="Внедорожник">Внедорожник</option>
+  </select>
+
+  <label for="field5">Номер:</label>
+  <input type="text" id="field5" name="field5" />
+
+  <label for="field6">Год выпуска:</label>
+  <input type="text" id="field6" name="field6" />
+
+  <label for="field7">Наличие прицепа (1/0):</label>
+  <input type="text" id="field7" name="field7" >
+
+  <button type="submit">Добавить</button>
+</form>
+<script>
+    function validateForm() {
+      var inputs = document.getElementsByTagName('input');
+      var isEmpty = false;
+
+      for (var i = 0; i < inputs.length; i++) {
+        if (inputs[i].value.trim() === '') {
+          inputs[i].classList.add('error');
+          isEmpty = true;
+        } else {
+          inputs[i].classList.remove('error');
+        }
+      }
+
+      if (isEmpty) {
+        alert('Пожалуйста, заполните все поля.');
+        return false;
+      }
+    }
+  </script>
+
+</body>
+</html>

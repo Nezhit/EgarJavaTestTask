@@ -1,0 +1,108 @@
+.navbar {
+    background-color: #333;
+    padding: 10px;
+}
+
+.navbar a {
+    margin-right: 10px;
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+}
+
+.navbar a:hover {
+    color: #ff0000;
+}
+/* Общий стиль формы */
+form {
+display: flex;
+flex-direction: column;
+max-width: 300px;
+margin: 0 auto;
+}
+
+  /* Стиль для меток */
+label {
+margin-bottom: 5px;
+font-weight: bold;
+}
+
+/* Стиль для полей ввода */
+input[type="text"] {
+padding: 8px;
+border: 1px solid #ccc;
+border-radius: 4px;
+margin-bottom: 10px;
+}
+
+/* Стиль для кнопки */
+button[type="submit"] {
+padding: 10px 20px;
+background-color: #4CAF50;
+color: white;
+border: none;
+border-radius: 4px;
+cursor: pointer;
+font-size: 16px;
+}
+
+/* При наведении на кнопку */
+button[type="submit"]:hover {
+background-color: #45a049;
+}
+/* Стиль для таблицы */
+table {
+border-collapse: collapse;
+width: 100%;
+font-size: 14px;
+}
+
+/* Стиль для заголовков таблицы */
+th {
+background-color: #f2f2f2;
+text-align: left;
+padding: 8px;
+}
+
+/* Стиль для ячеек таблицы */
+td {
+border-bottom: 1px solid #ddd;
+padding: 8px;
+}
+
+/* При наведении на ячейки */
+tr:hover td {
+background-color: #f5f5f5;
+}
+.welcome {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+h1 {
+  font-size: 24px;
+  color: #333;
+}
+
+p {
+  font-size: 16px;
+  color: #555;
+  line-height: 1.5;
+  margin-bottom: 10px;
+}
+
+.name {
+  font-weight: bold;
+}
+
+code {
+  font-family: Consolas, Monaco, monospace;
+  background-color: #f5f5f5;
+  padding: 2px 4px;
+  border-radius: 4px;
+}
+
+
+

@@ -1,0 +1,84 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<link rel="stylesheet" type="text/css" href="/my.css">
+<head>
+  <title>Table View</title>
+</head>
+<body>
+<nav class="navbar">
+  <a href="/">Главная</a>
+  <a href="/table">Продукты</a>
+  <a href="/save">Добавить</a>
+  <a href="/search">Поиск</a>
+  <a href="/contact">Контакты</a>
+</nav>
+<!-- Добавленный код: кнопки фильтрации -->
+<div>
+  <form id="myForm">
+    <input type="text" name="inputField" id="inputField" placeholder="Введите значение">
+    <button type="button" onclick="sendRequest('brand')">По марке</button>
+    <button type="button" onclick="sendRequest('model')">По модели</button>
+    <button type="button" onclick="sendRequest('category')">По категории</button>
+    <button type="button" onclick="sendRequest('number')">По номеру</button>
+    <button type="button" onclick="sendRequest('year')">По году</button>
+    <button type="button" onclick="sendRequest('istrailer')">По прицепу (0/1)</button>
+    <!-- Добавьте остальные кнопки -->
+  </form>
+
+</div>
+<div id="tableData">
+<table>
+  <thead>
+  <tr>
+    <th>ID</th>
+    <th>Brand</th>
+    <th>Model</th>
+    <th>Category</th>
+    <th>Number</th>
+    <th>Year</th>
+    <th>Is Trailer</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr th:each="transport : ${transportList}">
+    <td th:text="${transport.getID()}"></td>
+    <td th:text="${transport.getBrand()}"></td>
+    <td th:text="${transport.getModel()}"></td>
+    <td th:text="${transport.getCategory()}"></td>
+    <td th:text="${transport.getNumber()}"></td>
+    <td th:text="${transport.getYear()}"></td>
+    <td th:text="${transport.isTrailer()} ? 'Yes' : 'No'"></td>
+  </tr>
+  </tbody>
+</table>
+</div>
+
+
+<script>
+        function sendRequest(buttonId) {
+            var inputFieldValue = document.getElementById("inputField").value;
+
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", "/table", true);
+            xhr.setRequestHeader("Content-Type", "application/json");
+
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState === 4 && xhr.status === 200) {
+                    // Запрос успешно обработан
+                    console.log(xhr.responseText);
+                    // Обновление всей HTML-формы
+                    document.documentElement.innerHTML = xhr.responseText;
+
+                }
+            };
+
+            var data = JSON.stringify({
+                inputField: inputFieldValue,
+                buttonId: buttonId
+            });
+
+            xhr.send(data);
+        }
+    </script>
+</body>
+</html>

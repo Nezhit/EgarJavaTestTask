@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+  <link rel="stylesheet" type="text/css" href="/my.css">
+
+    <title>Title</title>
+
+</head>
+<body>
+<nav class="navbar">
+  <a href="/">Главная</a>
+  <a href="/table">Продукты</a>
+  <a href="/save">Добавить</a>
+  <a href="/search">Поиск</a>
+  <a href="/contact">Контакты</a>
+</nav>
+
+  <h2>Поиск ТС по вашим критериям</h2>
+  <p>Выберите пожалуйста категорию ТС и год выпуска, а затем нажмите кнопку поиска</p>
+
+  <form action="/search" method="post"  class="form-container">
+
+
+    <label for="field4">Категория:</label>
+    <select id="field4" name="field4">
+      <option value="Седан">Седан</option>
+      <option value="Хэтчбек">Хэтчбек</option>
+      <option value="Грузовик">Грузовик</option>
+      <option value="Пикап">Пикап</option>
+      <option value="Внедорожник">Внедорожник</option>
+    </select>
+
+
+
+    <label for="field6">Год выпуска:</label>
+    <input type="text" id="field6" name="field6" />
+
+
+
+    <button type="submit">Поиск</button>
+  </form>
+<table>
+  <thead>
+  <tr>
+    <th>ID</th>
+    <th>Brand</th>
+    <th>Model</th>
+    <th>Category</th>
+    <th>Number</th>
+    <th>Year</th>
+    <th>Is Trailer</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr th:each="transport : ${transportList}">
+    <td th:text="${transport.getID()}"></td>
+    <td th:text="${transport.getBrand()}"></td>
+    <td th:text="${transport.getModel()}"></td>
+    <td th:text="${transport.getCategory()}"></td>
+    <td th:text="${transport.getNumber()}"></td>
+    <td th:text="${transport.getYear()}"></td>
+    <td th:text="${transport.isTrailer()} ? 'Yes' : 'No'"></td>
+  </tr>
+  </tbody>
+</table>
+
+</body>
+</html>
