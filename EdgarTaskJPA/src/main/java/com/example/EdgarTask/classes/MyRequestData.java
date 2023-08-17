@@ -1,4 +1,4 @@
-package com.example.EdgarTask;
+package com.example.EdgarTask.classes;
 
 public class MyRequestData {
     private String inputField;
