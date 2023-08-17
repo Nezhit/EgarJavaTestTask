@@ -1,15 +1,26 @@
-package com.example.EdgarTask;
+package com.example.EdgarTask.classes;
+import jakarta.persistence.*;
 
+@Entity
+@Table(name = "transport")
 public class Transport {
-    private int ID;
+    @Id
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
+    private Long ID;
+    @Column(name="brand")
     private String brand;
+    @Column(name="model")
     private String model;
+    @Column(name="category")
     private String category;
+    @Column(name="number")
     private String number;
+    @Column(name="year")
     private int year;
+    @Column(name="istrailer")
     private boolean isTrailer;
-
-    public Transport(int ID, String brand, String model, String category, String number, int year, boolean isTrailer) {
+    protected Transport(){}
+    public Transport(long ID, String brand, String model, String category, String number, int year, boolean isTrailer) {
         this.ID = ID;
         this.brand = brand;
         this.model = model;
@@ -19,11 +30,11 @@ public class Transport {
         this.isTrailer = isTrailer;
     }
 
-    public int getID() {
+    public long getID() {
         return ID;
     }
 
-    public void setID(int ID) {
+    public void setID(long ID) {
         this.ID = ID;
     }
 

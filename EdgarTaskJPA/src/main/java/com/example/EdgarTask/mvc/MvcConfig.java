@@ -1,4 +1,4 @@
-package com.example.EdgarTask;
+package com.example.EdgarTask.mvc;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.ViewResolverRegistry;
